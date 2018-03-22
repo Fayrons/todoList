@@ -1,0 +1,19 @@
+<h2>Tous les tickets</h2>
+
+{% if allTickets | length > 0 %}
+    {% for ticket in allTickets %}
+        {{ ticket.title }}{{ ticket.content }}{{ ticket.getCurrentState }}{{ ticket.dateOfExecution |date('d-m-Y') }}<br>
+    {% endfor %}
+{% else %}
+    Aucun tickets.
+{% endif %}
+
+<h2>Tickets du jour</h2>
+
+{% if ticketsOfTheDay | length > 0 %}
+    {% for ticket in ticketsOfTheDay %}
+        {{ ticket.title }}{{ ticket.content }}{{ ticket.getCurrentState }}{{ ticket.dateOfExecution |date('d-m-Y') }}<br>
+    {% endfor %}
+{% else %}
+    <span style="color: indianred">Aucun tickets aujourd'hui.</span>
+{% endif %}
